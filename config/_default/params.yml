@@ -1,0 +1,19 @@
+homeInfoParams:
+  Title: Hi there wave
+  Content: Can be Info, links, about...
+
+socialIcons:
+  - name: linkedin
+    url: https://linkedin.com/in/leonardo-natale/
+  - name: github
+    url: https://github.com/leonardonatale/
+  - name: twitter
+    url: https://twitter.com/sirnatale/
+
+mainSections:
+  - blog
+
+defaultTheme: auto
+ShowToc: true
+ShowReadingTime: true
+ShowBreadCrumbs: true

@@ -1,0 +1,12 @@
+baseURL: "https://leonardonatale.github.io/"
+languageCode: "en-us"
+title: "Leonardo Natale"
+theme: "papermod"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # is necessary
+
+pluralizeListTitles: false
