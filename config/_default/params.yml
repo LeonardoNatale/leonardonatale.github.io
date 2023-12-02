@@ -13,7 +13,11 @@ socialIcons:
 mainSections:
   - blog
 
-defaultTheme: auto
+defaultTheme: light
+disableThemeToggle: true
+
 ShowToc: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
+hideSummary: true
+comments: true
