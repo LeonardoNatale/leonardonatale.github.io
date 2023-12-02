@@ -1,7 +1,7 @@
 baseURL: "https://leonardonatale.github.io/"
 languageCode: "en-us"
 title: "Leonardo Natale"
-theme: "papermod"
+theme: "PaperMod"
 
 outputs:
   home:
