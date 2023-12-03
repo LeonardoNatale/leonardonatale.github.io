@@ -1,6 +1,7 @@
 homeInfoParams:
-  Title: Hi there wave
-  Content: Can be Info, links, about...
+  Title: Welcome!
+  Content: >
+    I share about some random stuff you can find below ⬇️
 
 socialIcons:
   - name: linkedin
