@@ -3,9 +3,9 @@ main:
     name: Blog
     url: /blog/
     weight: 10
-  - identifier: about
-    name: About
-    url: /about/
+  - identifier: bio
+    name: Bio
+    url: /bio/
     weight: 20
   # - identifier: example
   #   name: example.org
