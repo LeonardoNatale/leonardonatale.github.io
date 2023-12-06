@@ -44,12 +44,11 @@ pizzas = pd.read_csv(here.parent.parent / "seeds" / "pizzas.csv")
 
 Our project structure, ready for data processing, will resemble the following ⬇️
 
-````
+```
 views
 ├── raw
     ├── order_details.py
     ├── orders.py
     ├── pizza_types.py
     └── pizzas.py
-```G
-````
+```
