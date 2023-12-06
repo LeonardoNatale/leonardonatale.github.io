@@ -20,5 +20,6 @@ disableThemeToggle: true
 ShowToc: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
+ShowCodeCopyButtons: true
 hideSummary: true
 comments: true
