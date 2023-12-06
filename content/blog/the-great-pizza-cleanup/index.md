@@ -188,3 +188,100 @@ views
 ```
 
 With the pizza police on our side and Lea in our toolkit, we're ready to dive into our initial questions. With the assurance that only the most authentic pizze are included in our analysis.
+
+## Analytics
+
+It's time to crunch some numbers and turn our data into meaningful insights. We're set to answer our initial questions with precision, all while respecting traditions.
+
+### Crafting KPIs
+
+First, we create an **`analytics/`** schema. Within this, we consolidate our primary queries into a **`kpis.sql`** file:
+
+1. The daily customer count.
+2. The average number of pizzas per order.
+3. The total sales for the year.
+
+Curious about the queries? Find them detailed [here](https://github.com/LeonardoNatale/pizza-engineering/blob/main/views/analytics/kpis.sql#L8). Below are the results:
+
+| metric                  | value       |
+| ----------------------- | ----------- |
+| average_pizze_per_order | 1.9         |
+| avg_orders_per_day      | 49.9        |
+| total_sales             | 1,722,907 $ |
+| total_orders            | 18,214      |
+
+### Unraveling Seasonality in Sales
+
+Our next step is to detect any seasonality in sales. For this, we craft a **`sales_by_month.sql`** query to break down sales data by month. Here's the query structure:
+
+```sql
+SELECT
+    monthname(datetime) AS MONTH,
+    SUM(quantity * price) AS total_sales
+FROM
+    pizza_police.orders
+    JOIN pizza_police.pizze USING (pizza_type_id)
+GROUP BY
+    MONTH
+ORDER BY
+    total_sales DESC;
+```
+
+### Diving Deeper
+
+We're not stopping there! We also have queries ready for identifying peak hours (**`peak_hours.sql`**) and our top 10 best-selling pizzas (**`top10_bestseller.sql`**), all neatly organized under the **`analytics`** schema.
+
+Now, our **`views/`** folder illustrates our comprehensive data journey:
+
+```
+views
+├── analytics
+│   ├── kpis.sql
+│   ├── peak_hours.sql
+│   ├── sales_by_month.sql
+│   └── top10_bestseller.sql
+├── pizza_police
+│   ├── orders.sql
+│   └── pizze.sql
+├── raw
+│   ├── order_details.py
+│   ├── orders.py
+│   ├── pizza_types.py
+│   └── pizzas.py
+└── staging
+    ├── orders.sql
+    ├── pizza_ingredients.sql
+    └── pizzas.sql
+```
+
+And can be beautifully represented with a flowchart:
+
+<div align="center" >
+<figure style="max-width: 90%;">
+    <img src="./mermaid-diagram.png" style="box-shadow: none;">
+</figure>
+</div>
+
+## Wrapping It Up
+
+Our journey through the data landscape of pizza sales is now complete. The final step is to materialise our views with Lea. Here's the straightforward process, detailed in the [readme](https://github.com/LeonardoNatale/pizza-engineering/blob/main/README.md#L19):
+
+- `lea prepare`
+- `lea run`
+
+Want to generate some beautiful docs? Just run `lea docs`
+
+With these commands, our schemas and tables are now fully operational in DuckDB, ready to deliver insightful analyses.
+
+A special thanks must go to the pizza police 🚨 for their crucial role in maintaining the integrity of our analysis. Their efforts ensured that only the most authentic pizzas were included, adding a layer of culinary credibility to our data.
+
+### Seeking Your Input on Lea
+
+Lea has been our trusted companion throughout this exploration, proving its worth as a powerful tool in data processing and analysis.
+
+Now, I'm keen to hear from you:
+
+- How did you perceive the effectiveness and simplicity of Lea in managing and transforming data?
+- Would you consider using Lea in your own data projects, perhaps even beyond the realm of pizza analytics?
+
+Your thoughts and experiences are incredibly valuable to this discussion. Whether you're a data enthusiast, a culinary expert, or simply intrigued by the intersection of technology and pizza, I would love to hear from you. Please feel free to add a comment below and share your perspective!
