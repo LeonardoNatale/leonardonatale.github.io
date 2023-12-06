@@ -65,7 +65,7 @@ Take, for example, the data for “Barbecue Chicken Pizza” (a choice that migh
 | bbq_ckn_m | bbq_ckn       | M    | 16.75 |
 | bbq_ckn_l | bbq_ckn       | L    | 20.75 |
 
-and from the `**pizza_types**` table:
+and from the **`pizza_types`** table:
 
 | pizza_type_id | name                       | category | ingredients                                                                         |
 | ------------- | -------------------------- | -------- | ----------------------------------------------------------------------------------- |
@@ -108,7 +108,7 @@ FROM
 
 We apply similar transformations to the **`orders`** and **`order_details`** data. For a detailed look at these queries, check out the [provided code](https://github.com/LeonardoNatale/pizza-engineering/blob/main/views/staging/orders.sql#L14).
 
-After these steps, our **`views/`** folder is now neatly organized as follows ⬇️:
+After these steps, our **`views/`** folder is now neatly organised as follows ⬇️:
 
 ```
 views
@@ -124,3 +124,67 @@ views
 ```
 
 With our data neatly prepped and staged, we're all set for the deep-dive analysis.
+
+## Pizza Police
+
+🚨🚨🚨 Alert! The pizza police have entered the chat! 🚨🚨🚨
+
+<div align="center" >
+<figure style="max-width: 300px;">
+    <img src="./pizza_police.png" style="box-shadow: none;">
+</figure>
+</div>
+
+With the help of our newly crafted ingredients table, our vigilant pizza police have spotted some truly outrageous pizza claims. Alfredo sauce with chicken, chipotle sauce, pineapple, and even thai sweet chilli sauce on a pizza? This culinary chaos is simply unacceptable!
+
+Thankfully, the pizza police, along with Lea, are here to enforce a standard of authenticity. It's time to establish some order in this pizza pandemonium. We're setting up a **`pizza_police/`** folder within our **`views/`** directory to sort things out. And let's get it straight once and for all: it's “pizze,” not “pizzas”!
+
+As it turns out, maintaining pizza integrity is just a matter of a few well-placed **`SELECT`** queries on our staged data.
+
+For example, here's how we ensure only the most authentic pizze make it through our filter:
+
+```sql
+SELECT
+    *
+FROM
+    staging.pizzas sp
+WHERE
+    NOT EXISTS (
+        SELECT
+            1
+        FROM
+            staging.pizza_ingredients pi
+        WHERE
+            pi.pizza_type_id = sp.pizza_type_id
+            AND pi.ingredient_name IN (
+                'Alfredo Sauce',
+                'Barbecued Chicken',
+                'Chicken',
+                'Chipotle Sauce',
+                'Pineapple',
+                'Thai Sweet Chilli Sauce'
+            )
+    );
+```
+
+We're applying a similar level of scrutiny to our **`orders`** as well. You can view this query [here](https://github.com/LeonardoNatale/pizza-engineering/blob/main/views/pizza_police/orders.sql#L16).
+
+Now, our **`views/`** folder looks clean:
+
+```
+views
+├── pizza_police
+│   ├── orders.sql
+│   └── pizze.sql
+├── raw
+│   ├── order_details.py
+│   ├── orders.py
+│   ├── pizza_types.py
+│   └── pizzas.py
+└── staging
+    ├── orders.sql
+    ├── pizza_ingredients.sql
+    └── pizzas.sql
+```
+
+With the pizza police on our side and Lea in our toolkit, we're ready to dive into our initial questions. With the assurance that only the most authentic pizze are included in our analysis.

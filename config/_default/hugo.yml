@@ -10,3 +10,8 @@ outputs:
     - JSON # is necessary
 
 pluralizeListTitles: false
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
