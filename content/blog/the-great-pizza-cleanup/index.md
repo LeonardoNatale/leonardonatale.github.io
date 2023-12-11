@@ -6,11 +6,11 @@ date: 2023-12-02T09:03:20-08:00
 
 ## Motivation
 
-In an age where culinary creativity often crosses into the realm of the absurd, the sanctity of pizza is under threat. Everywhere you look, there's a new, wild rendition being labeled as 'pizza'. Not every round dough with toppings earns the right to be called a pizza.
+In an age where culinary creativity often crosses into the realm of the absurd, the sanctity of pizza is under threat. Everywhere you look, there's a new, wild rendition being labeled as “pizza”. Not every round dough with toppings earns the right to be called a pizza.
 
-In 'The Great Pizza Clean-Up', we embark on a flavourful journey, armed with [Lea](https://github.com/carbonfact/lea) and a dash of Italian flair, to distinguish the authentic from the outrageous.
+In “The Great Pizza Clean-Up”, we embark on a flavourful journey. Armed with [Lea](https://github.com/carbonfact/lea), a minimalistic alternative to DBT developed by [Max Halford](https://maxhalford.github.io/), and a dash of Italian flair, we set out to distinguish the authentic from the outrageous.
 
-It's time to restore the honour of this beloved dish, one data point at a time. Join me in redefining what truly makes a pizza, a pizza.
+It's time to restore the honour of this beloved dish, one data point at a time.
 
 ## The data
 
@@ -18,7 +18,7 @@ In my quest to showcase [Lea](https://github.com/carbonfact/lea)’s simplicity,
 
 But here's the twist: amongst these pizze lie some so wildly unconventional that they just can't make the cut.
 
-With Lea's capabilities and a little help from the pizza police 🚨, we're set to explore some intriguing aspects of our data, while carefully navigating around the pizza pretenders:
+With [Lea](https://github.com/carbonfact/lea)'s capabilities and a little help from the pizza police 🚨, we're set to explore some intriguing aspects of our data, while carefully navigating around the pizza pretenders:
 
 1. How many customers do we have each day? Are there any peak hours?
 2. How many pizzas are typically in an order? Do we have any bestsellers?
@@ -46,7 +46,7 @@ Our project structure, ready for data processing, will resemble the following �
 
 ```
 views
-├── raw
+└── raw
     ├── order_details.py
     ├── orders.py
     ├── pizza_types.py
@@ -57,7 +57,7 @@ views
 
 With our raw data now successfully loaded, it's time to roll up our sleeves and delve deeper. A closer inspection of the **`pizzas`** and **`pizza_types`** tables reveals an opportunity for merging to streamline our analysis.
 
-Take, for example, the data for “Barbecue Chicken Pizza” (a choice that might raise a few Italian eyebrows 🤢) in the **`pizzas`** table:
+Take, for example, the data for “Barbecue Chicken Pizza” (a choice that might raise a few Italian eyebrows 🤨) in the **`pizzas`** table:
 
 | pizza_id  | pizza_type_id | size | price |
 | --------- | ------------- | ---- | ----- |
@@ -65,7 +65,7 @@ Take, for example, the data for “Barbecue Chicken Pizza” (a choice that migh
 | bbq_ckn_m | bbq_ckn       | M    | 16.75 |
 | bbq_ckn_l | bbq_ckn       | L    | 20.75 |
 
-and from the **`pizza_types`** table:
+and from the `**pizza_types**` table:
 
 | pizza_type_id | name                       | category | ingredients                                                                         |
 | ------------- | -------------------------- | -------- | ----------------------------------------------------------------------------------- |
@@ -90,7 +90,7 @@ And we'll relocate the ingredients into a separate table:
 | bbq_ckn       | Red Onions        |
 | bbq_ckn       | Barbecue Sauce    |
 
-Since our **`raw`** data is already nestled in our database, transforming it becomes a breeze with Lea. We can use a **`SELECT`** query for this transformation and place the resulting data in the **`staging/`** folder.
+Since our **`raw`** data is already nestled in our database, transforming it becomes a breeze with [Lea](https://github.com/carbonfact/lea). We can use a **`SELECT`** query for this transformation and place the resulting data in the **`staging/`** folder.
 
 For example, our **`pizzas.sql`** file in the **`staging`** folder would look something like this:
 
@@ -137,7 +137,7 @@ With our data neatly prepped and staged, we're all set for the deep-dive analysi
 
 With the help of our newly crafted ingredients table, our vigilant pizza police have spotted some truly outrageous pizza claims. Alfredo sauce with chicken, chipotle sauce, pineapple, and even thai sweet chilli sauce on a pizza? This culinary chaos is simply unacceptable!
 
-Thankfully, the pizza police, along with Lea, are here to enforce a standard of authenticity. It's time to establish some order in this pizza pandemonium. We're setting up a **`pizza_police/`** folder within our **`views/`** directory to sort things out. And let's get it straight once and for all: it's “pizze,” not “pizzas”!
+Thankfully, the pizza police, along with [Lea](https://github.com/carbonfact/lea), are here to enforce a standard of authenticity. It's time to establish some order in this pizza pandemonium. We're setting up a **`pizza_police/`** folder within our **`views/`** directory to sort things out. And let's get it straight once and for all: it's “pizze,” not “pizzas”!
 
 As it turns out, maintaining pizza integrity is just a matter of a few well-placed **`SELECT`** queries on our staged data.
 
@@ -187,11 +187,11 @@ views
     └── pizzas.sql
 ```
 
-With the pizza police on our side and Lea in our toolkit, we're ready to dive into our initial questions. With the assurance that only the most authentic pizze are included in our analysis.
+With the pizza police on our side, we're ready to answer our initial questions. With the assurance that only the most authentic pizze are included in our analysis.
 
 ## Analytics
 
-It's time to crunch some numbers and turn our data into meaningful insights. We're set to answer our initial questions with precision, all while respecting traditions.
+It's time to crunch some numbers and turn our data into meaningful insights, all while respecting traditions.
 
 ### Crafting KPIs
 
@@ -257,31 +257,19 @@ views
 And can be beautifully represented with a flowchart:
 
 <div align="center" >
-<figure style="max-width: 90%;">
+<figure style="max-width: 70%;">
     <img src="./mermaid-diagram.png" style="box-shadow: none;">
 </figure>
 </div>
 
 ## Wrapping It Up
 
-Our journey through the data landscape of pizza sales is now complete. The final step is to materialise our views with Lea. Here's the straightforward process, detailed in the [readme](https://github.com/LeonardoNatale/pizza-engineering/blob/main/README.md#L19):
+The final step is to materialise our views with [Lea](https://github.com/carbonfact/lea). This is a straightforward process, detailed in the [readme](https://github.com/LeonardoNatale/pizza-engineering/blob/main/README.md#L19):
 
-- `lea prepare`
-- `lea run`
-
-Want to generate some beautiful docs? Just run `lea docs`
+1. **`lea prepare`**
+2. **`lea run`**
+3. **`lea docs`**, if you want to generate some beautiful docs
 
 With these commands, our schemas and tables are now fully operational in DuckDB, ready to deliver insightful analyses.
 
-A special thanks must go to the pizza police 🚨 for their crucial role in maintaining the integrity of our analysis. Their efforts ensured that only the most authentic pizzas were included, adding a layer of culinary credibility to our data.
-
-### Seeking Your Input on Lea
-
-Lea has been our trusted companion throughout this exploration, proving its worth as a powerful tool in data processing and analysis.
-
-Now, I'm keen to hear from you:
-
-- How did you perceive the effectiveness and simplicity of Lea in managing and transforming data?
-- Would you consider using Lea in your own data projects, perhaps even beyond the realm of pizza analytics?
-
-Your thoughts and experiences are incredibly valuable to this discussion. Whether you're a data enthusiast, a culinary expert, or simply intrigued by the intersection of technology and pizza, I would love to hear from you. Please feel free to add a comment below and share your perspective!
+As we bring our exploration of pizza sales data to a close, the key to unlocking our insights has been [Lea](https://github.com/carbonfact/lea). This journey demonstrated that diving into data analysis doesn't require you to be a seasoned data engineer. Lea stands out as a testament to this, offering a user-friendly, minimalistic yet powerful tool for data processing and analysis.
