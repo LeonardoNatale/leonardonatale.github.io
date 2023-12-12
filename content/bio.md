@@ -18,4 +18,4 @@ I'm quite particular about my coffee: I prefer 12 grams of a very dark roast, en
 My brewing equipment of choice is the [La Pavoni Europiccola](https://www.lapavoni.com/it/prodotti/linea-domestica/europiccola-lusso) paired with the
 [Eureka Mignon Specialità](https://www.eureka.co.it/en/catalogo/prodotti/macinacaff%C3%A8+on+demand/1/20.aspx) grinder.
 
-Basketball 🏀 is another favorite pastime. Having played in the 4th and 5th national divisions in Italy, I recently joined a a small club in Paris.
+Basketball 🏀 is another favorite pastime. Having played in the 4th and 5th national divisions in Italy, I recently joined a small club in Paris.
